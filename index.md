@@ -103,17 +103,17 @@ The set of insurance products available to clients on the Service may vary accor
 ### Using the Service
 
 1. **Calculation:** You have two options to determine products and their prices:
-  - `<UNQCalculator>`: This will provide possible insurance types and their prices based on basic selections.
-  - `<UNQInsuranceOrder>` without an OrderNo: Premiums will be calculated and returned for a specific product.
+  - `UNQCalculator`: This will provide possible insurance types and their prices based on basic selections.
+  - `UNQInsuranceOrder` without an OrderNo: Premiums will be calculated and returned for a specific product.
 
 2. **Create orders:** To save an order as a draft insurance policy while calculating:
-  - `<UNQInsuranceOrder>` with an OrderNo: This action stores the order in Mont-Blanc.
+  - `UNQInsuranceOrder` with an OrderNo: This action stores the order in Mont-Blanc.
 
-3. **Order Delete:** You can purge an order using `<UNQDeleteOrder>`, provided the order hasn't been activated by `<UNQPaymentConfirm>`.
+3. **Order Delete:** You can purge an order using `UNQDeleteOrder`, provided the order hasn't been activated by `UNQPaymentConfirm`.
 
 4. **Activating Your Order:**
   - If payment is made through a payment gateway (e.g., by transferring to the insurance company's account), the order is automatically activated.
-  - For collection partners, each order needs activation via `<UNQPaymentConfirm>`. Typically, partners use this when all ordered services are paid by the client.
+  - For collection partners, each order needs activation via `UNQPaymentConfirm`. Typically, partners use this when all ordered services are paid by the client.
 
 5. **Draft Insurance Contract Information:**
   - Use the `UNQOrderInfo` query to obtain real-time details about the draft insurance policy's status.
@@ -182,13 +182,13 @@ The calculator is a tool that simplifies the selection of insurance products acc
 
 **Notes:** 
 
-- The abbreviation for the insurance type is applicable to **InsuranceType** in the **UNQInsuranceOrder** command through which the order can follow.
+- The abbreviation for the insurance type is applicable to **InsuranceType** in the `UNQInsuranceOrder` command through which the order can follow.
 - Request example and response see [online tester](#online-tester).
 
 
 ## Calculation with UNQInsuranceOrder
 
-**UNQInsuranceOrder** returns only a response without saving if OrderNo is not filled in.  
+`UNQInsuranceOrder` returns only a response without saving if OrderNo is not filled in.  
 
 ### Request format
 
@@ -223,7 +223,7 @@ The calculator is a tool that simplifies the selection of insurance products acc
 
 ## Create order with UNQInsuranceOrder
 
-**UNQInsuranceOrder** with OrderNo filled  in, inserts or overwrites an unpaid order.  
+`UNQInsuranceOrder` with OrderNo filled  in, inserts or overwrites an unpaid order.  
 
 ### Request format
 
@@ -344,7 +344,7 @@ Activation of the order is possible only if the order has not been paid. This or
 **Notes:**
 
 - In case of error, returns a code different from 0 (ErrorInfo > 0)
-- If activated successfully, the <UNQPaymentConfirm> response is  the same as the <UNQOrderInfo> call response
+- If activated successfully, the `UNQPaymentConfirm` response is  the same as the `UNQOrderInfo` call response
  
 ## Insurance order information UNQOrderInfo
 

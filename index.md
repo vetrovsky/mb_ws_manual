@@ -223,40 +223,40 @@ The calculator is a tool that simplifies the selection of insurance products acc
 
 ## Create order with UNQInsuranceOrder
 
-<UNQInsuranceOrder> with OrderNo filled  in, inserts or overwrites an unpaid order.  
+**UNQInsuranceOrder** with OrderNo filled  in, inserts or overwrites an unpaid order.  
 
 ### Request format
 
-|Tag Name|Length and type|Description||
-| :- | :- | :- | :- |
-|UNQInsuranceOrder||Main Tag||
-|OrderNo|10, String|The order number you specify, when it is empty, will only be recalculated - without registration, if repeated, the old order is deleted (if unpaid). If you wish the system would generate an automatic order number for you, enter a special symbol - three dots (...) in the field. </p>||
-|UserKey|32, String|Assigned code for user authorization||
-|DateFrom|D.M.YYYY, Date|Date of validity from||
-|DateTo|D.M.YYYY, Date|Date of validity until||
-|InsuranceType|4, String|Abbreviation of the insurance type according to Table 1||
-|Currency|3, String|Unit of currency used (EUR)||
-|TotalTourPrice|Double<br>(Max.2 decimal places for currency EUR. Integer for CZK)|Total price of a trip, airfare, or other services total, for all persons in units according to the currency used.||
-|CountryCode|3, String|Country code according to the Annex, for Storn there is an empty <br>3-digit iso alpha code, see http://cs.wikipedia.org/wiki/ISO\_3166-1||
-|Area|2, String|W = World,<br>E = Europe,<br>SK = Slovakia.<br>If **CountryCode** is filled in,  the **Area** is  optional</p><p>In the case of driver insurance **Area** is  always **E**.||
-|Arrangement|100, String|Special arrangements for the contract (optional field)||
-|InternalAcqNum|20, String|The employee ID, if it is listed in the profile as **Int.zisk.číslo**, can be distinguished in production report. (optional field)||
-|IndividualCode|20, String|Custom code - tour resolution, invoice number, etc. (optional field)||
-|InsurerFirstName|10, String|Name of the policyholder/person acting (if not filled in 1. person is a policyholder)||
-|InsurerLastName|20, String|Surname of the policyholder/person acting (if not filled in 1.person is a policyholder)||
-|InsurerBirthDate|D.M.YYYY, Date|Date of birth of the policyholder (if not completed 1.person is a policyholder)||
-|InsurerCompany|50, String|Name of legal entity/ company (optional field)||
-|InsurerId|10, String|Company ID of a legal entity/company ||
-|InsurerIdentityCardType|3 String|OP=ID card, PAS=passport, RES=residence permit for residents (optional field)||
-|InsurerIdentityCardNo|30 String|Document number (optional)||
-|Town|30, String|Municipality – residence of the customer||
-|StreetNo|30, String|Street and Number||
-|Zip code|5, String|Postcode||
-|Phone|30, String|Customer's phone number||
-|Email|40, String|Email policyholder||
-|Nationality|3, String|ISO state of the policyholder's country of residence (Optional field)||
-|Passengers||||
-|- Passenger||Insured persons. **Passenger** elements  can be repeated 1 to 60 times. For driver insurance, only one person can be entered.||
+|Tag Name|Length and type|Description|
+| :- | :- | :- | 
+|UNQInsuranceOrder||Main Tag|
+|OrderNo|10, String|The order number you specify, when it is empty, will only be recalculated - without registration, if repeated, the old order is deleted (if unpaid). If you wish the system would generate an automatic order number for you, enter a special symbol - three dots (...) in the field. |
+|UserKey|32, String|Assigned code for user authorization|
+|DateFrom|D.M.YYYY, Date|Date of validity from|
+|DateTo|D.M.YYYY, Date|Date of validity until|
+|InsuranceType|4, String|Abbreviation of the insurance type according to Table 1|
+|Currency|3, String|Unit of currency used (EUR)|
+|TotalTourPrice|Double<br>(Max.2 decimal places for currency EUR. Integer for CZK)|Total price of a trip, airfare, or other services total, for all persons in units according to the currency used.|
+|CountryCode|3, String|Country code according to the Annex, for Storn there is an empty <br>3-digit iso alpha code, see http://cs.wikipedia.org/wiki/ISO\_3166-1|
+|Area|2, String|W = World,<br>E = Europe,<br>SK = Slovakia.<br>If **CountryCode** is filled in,  the **Area** is  optional</p><p>In the case of driver insurance **Area** is  always **E**.|
+|Arrangement|100, String|Special arrangements for the contract (optional field)|
+|InternalAcqNum|20, String|The employee ID, if it is listed in the profile as **Int.zisk.číslo**, can be distinguished in production report. (optional field)|
+|IndividualCode|20, String|Custom code - tour resolution, invoice number, etc. (optional field)|
+|InsurerFirstName|10, String|Name of the policyholder/person acting (if not filled in 1. person is a policyholder)|
+|InsurerLastName|20, String|Surname of the policyholder/person acting (if not filled in 1.person is a policyholder)|
+|InsurerBirthDate|D.M.YYYY, Date|Date of birth of the policyholder (if not completed 1.person is a policyholder)|
+|InsurerCompany|50, String|Name of legal entity/ company (optional field)|
+|InsurerId|10, String|Company ID of a legal entity/company |
+|InsurerIdentityCardType|3 String|OP=ID card, PAS=passport, RES=residence permit for residents (optional field)|
+|InsurerIdentityCardNo|30 String|Document number (optional)|
+|Town|30, String|Municipality – residence of the customer|
+|StreetNo|30, String|Street and Number|
+|Zip code|5, String|Postcode|
+|Phone|30, String|Customer's phone number|
+|Email|40, String|Email policyholder|
+|Nationality|3, String|ISO state of the policyholder's country of residence (Optional field)|
+|Passengers|||
+|- Passenger||Insured persons. **Passenger** elements  can be repeated 1 to 60 times. For driver insurance, only one person can be entered.|
 |-- ID|2, Integer|Serial Number |
 |-- FirstName|10, String|Client Name|
 |-- LastName|20, String|Client's last name|

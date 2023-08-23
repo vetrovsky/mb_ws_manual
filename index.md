@@ -149,7 +149,7 @@ The calculator is a tool that simplifies the selection of insurance products acc
 | :- | :- |
 |UNQCalculator|Main Tag|
 |UserKey|Assigned code for user authorization|
-|Ticketing|<p>1=ticket insurance</p><p>0=travel insurance</p>|
+|Ticketing|1=ticket insurance, 0=travel insurance|
 |Area|W=world, E=Europe, SK=Slovakia |
 |DateFrom|Start Date Format: D.M.YYYY|
 |DateTo|End date, for annual (Annual=1), makes no sense|
@@ -182,12 +182,12 @@ The calculator is a tool that simplifies the selection of insurance products acc
 
 **Notes:** 
 
-- The abbreviation for the insurance type is applicable to **InsuranceType** in the <UNQInsuranceOrder> command through which the order can follow.
+- The abbreviation for the insurance type is applicable to **InsuranceType** in the **UNQInsuranceOrder** command through which the order can follow.
 - Request example and response see [online tester](#online-tester).
 
 
 ## Calculation with UNQInsuranceOrder
-<UNQInsuranceOrder> returns only a response without saving if OrderNo is not filled in.  
+**UNQInsuranceOrder** returns only a response without saving if OrderNo is not filled in.  
 
 ### Request format
 

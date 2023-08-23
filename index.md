@@ -338,7 +338,7 @@ Activation of the order is possible only if the order has not been paid. This or
 |OrderNo|9, String|Order number|
 |UserKey|64, String|Assigned code for user authorization|
 |Mailing|1, Char|1=send an informational e-mail to the client about the conclusion of the insurance contract<br>0=do not send e-mail. (The User solves on his own account)|
-||||
+
 ### Response fomat:
 
 **Notes:**

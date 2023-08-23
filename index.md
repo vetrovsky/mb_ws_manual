@@ -191,23 +191,24 @@ The calculator is a tool that simplifies the selection of insurance products acc
 
 ### Request format
 
-|Tag Name|Length and type|Description||
-| :- | :- | :- | :- |
-|UNQInsuranceOrder||Main Tag||
-|UserKey|32, String|Code assigned to you to indicate the insurance intermediary||
-|DateFrom|D.M.YYYY, Date|Date of validity from||
-|DateTo|D.M.YYYY, Date|Date of validity until||
-|InsuranceType|4, String|Abbreviation of the insurance type according to Table 1||
-|Currency|3, String|Unit of currency (dafault value: EUR)||
-|Area|2, String|W = World<br>E = Europe,<br>SK = Slovakia<br> If it is filled **CountryCode** so  **Area** is optional</p>||
-|TotalTourPrice|Double<br>(Max.2 decimal places for the EUR currency. Integer for CZK)|The total price of the tour, ticket, or other services together, for all persons in the units according to the currency used||
-|CountryCode|3, String|Country code according to the Annex, for Storn there is an empty <br>3-digit iso alpha code, see http://cs.wikipedia.org/wiki/ISO\_3166-1||
-|Passangers||Poistené osoby. Elementy **Passenger** sa môžu opakovať.||
-|- Passenger||Poradové číslo (0 to max 61)Insured persons. **Passenger** elements  can be repeated.||
-|-- ID|number2, Integer|Serial number (0 to max 61)|
-|-- BirthDate|dd.mm.YYYYD.M.YYYY, Date|Client's date of birth|
-|-- TourPrice|Double<p>max.2 decimal places for EUR. Integer for CZK.|Price of  tour, airfare, or other services in units in currency.  Unless the total amount of **TotalTourPrice** is given, the total amount is the sum of the TourPrice of individual persons.||
-|-- TicketPrice|Double|Ticket price for STV product. If the price is only for the first person, the service assumes that it is a group/family ticket.||
+| Tag Name          | Length and Type                            | Description                                                                                       |
+| :---------------- | :---------------------------------------- | :------------------------------------------------------------------------------------------------ |
+| UNQInsuranceOrder |                                          | Main Tag                                                                                           |
+| UserKey           | 32, String                               | Code assigned to you to indicate the insurance intermediary                                      |
+| DateFrom          | D.M.YYYY, Date                           | Date of validity from                                                                              |
+| DateTo            | D.M.YYYY, Date                           | Date of validity until                                                                             |
+| InsuranceType     | 4, String                                | Abbreviation of the insurance type according to Table 1                                          |
+| Currency          | 3, String                                | Unit of currency (default value: EUR)                                                              |
+| Area              | 2, String                                | - W = World<br> - E = Europe,<br> - SK = Slovakia<br> If filled **CountryCode**, **Area** is optional |
+| TotalTourPrice    | Double (Max. 2 decimal places for EUR currency. Integer for CZK) | Total price of the tour, ticket, or other services for all persons in the currency used        |
+| CountryCode       | 3, String                                | Country code according to the Annex, for Storn an empty 3-digit ISO alpha code                  |
+| Passengers        |                                          | Insured persons. **Passenger** elements can be repeated.                                          |
+| - Passenger       |                                          | Serial number (0 to max 61)                                                                         |
+| -- ID             | Number2, Integer                         | Serial number (0 to max 61)                                                                         |
+| -- BirthDate      | dd.mm.YYYY D.M.YYYY, Date                | Client's date of birth                                                                             |
+| -- TourPrice      | Double (Max. 2 decimal places for EUR currency. Integer for CZK) | Price of the tour, airfare, or other services in the currency used                                |
+| -- TicketPrice    | Double                                   | Ticket price for STV product. If the price is only for the first person, assumes a group/family ticket |
+
 
 ### Reponse format
 

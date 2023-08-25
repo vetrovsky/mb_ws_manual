@@ -131,8 +131,26 @@ External IP address is show even in the footer of the [tester](https://www.mont-
 [**https://www.mont-blanc.sk/webservices/xmldirect.php**](https://www.mont-blanc.sk/webservices/xmldirect.php)
 
 **Notes:**
-- Query this URL using the POST method in the variable name="xml"
+- Query this URL using the POST method in the variable name="xml" (or name="json")
 - The script is for EUR currency only.
+
+**Curl request example**
+
+XML request:
+
+```
+curl -X POST \
+  -d "xml=XML_CONTENT_HERE" \
+"https://www.mont-blanc.sk/webservices/xmldirect.php"
+```
+
+or json equivalent: 
+
+```
+curl -X POST \
+  -d "json=JSON_CONTENT_HERE" \
+"https://www.mont-blanc.sk/webservices/xmldirect.php"'''
+```
 
 ### Online tester
 
@@ -236,18 +254,19 @@ The calculator is a tool that simplifies the selection of insurance products acc
 |DateTo|D.M.YYYY, Date|Date of validity until|
 |InsuranceType|4, String|Abbreviation of the insurance type according to Table 1|
 |Currency|3, String|Unit of currency used (EUR)|
+|Status|1, String|N = save as paid order (optional)|
 |TotalTourPrice|Double<br>(Max.2 decimal places for currency EUR. Integer for CZK)|Total price of a trip, airfare, or other services total, for all persons in units according to the currency used.|
 |CountryCode|3, String|Country code according to the Annex, for Storn there is an empty <br>3-digit iso alpha code, see http://cs.wikipedia.org/wiki/ISO\_3166-1|
 |Area|2, String|W = World,<br>E = Europe,<br>SK = Slovakia.<br>If **CountryCode** is filled in,  the **Area** is  optional</p><p>In the case of driver insurance **Area** is  always **E**.|
-|Arrangement|100, String|Special arrangements for the contract (optional field)|
-|InternalAcqNum|20, String|The employee ID, if it is listed in the profile as **Int.zisk.číslo**, can be distinguished in production report. (optional field)|
-|IndividualCode|20, String|Custom code - tour resolution, invoice number, etc. (optional field)|
+|Arrangement|100, String|Special arrangements for the contract (optional)|
+|InternalAcqNum|20, String|The employee ID, if it is listed in the profile as **Int.zisk.číslo**, can be distinguished in production report. (optional)|
+|IndividualCode|20, String|Custom code - tour resolution, invoice number, etc. (optional)|
 |InsurerFirstName|10, String|Name of the policyholder/person acting (if not filled in 1. person is a policyholder)|
 |InsurerLastName|20, String|Surname of the policyholder/person acting (if not filled in 1.person is a policyholder)|
 |InsurerBirthDate|D.M.YYYY, Date|Date of birth of the policyholder (if not completed 1.person is a policyholder)|
-|InsurerCompany|50, String|Name of legal entity/ company (optional field)|
+|InsurerCompany|50, String|Name of legal entity/ company (optional)|
 |InsurerId|10, String|Company ID of a legal entity/company |
-|InsurerIdentityCardType|3 String|OP=ID card, PAS=passport, RES=residence permit for residents (optional field)|
+|InsurerIdentityCardType|3 String|OP=ID card, PAS=passport, RES=residence permit for residents (optional)|
 |InsurerIdentityCardNo|30 String|Document number (optional)|
 |Town|30, String|Municipality – residence of the customer|
 |StreetNo|30, String|Street and Number|
@@ -435,40 +454,41 @@ All others belong to the risk zone "W" with the exception of the Slovak Republic
 
 ## Annex 2 Error codes
 
-|Error No.|Error text|Slovak importance|
-| :- | :- | :- |
-|1|Unknown product|Unknown product IDENTIFIER|
-|2|Failed loading XML|Failed to process XML|
-|3|Period exceeded|Insurance scope exceeded|
-|4|Wrong riz.zone definition|Incorrect risk zone|
-|5|DateTo is invalid|Departure date is out of range|
-|6|DateFrom is invalid|odchodu Return date is out of range|
-|7|Rate does not exist|Sadzba does not exist|
-|8|SellPrice is out of bounds|Gross price is out of range|
-|9|DB error|DB I think|
-|10|This operation is not supported|This operation is not supported|
-|11|Invalid userkey|Invalid userkey|
-|12|Access expired|Access expired|
-|13|Wrong date from|Erroneous date from|
-|14|Wrong date to|Erroneous date by|
-|15|Area is not defined|Partition not defined|
-|16|Wrong currency|We accept only EUR|
-|17|Missing data for person #|Missing data forperson No.|
-|18|Missing OrderNo or UserKey|Missing OrderNo or UserKey|
-|19|PIN could not write/update records|The operator cannot write / update records|
-|20|User disabled|User is disabled|
-|21|OrderNo already activated|OrderNo already activated, cannot be erased or reactivate|
-|22|0 record was updated.  Already activated?|No status change, records already marked activated|
-|23|Order not found|Order does not exist|
-|24|OrderNo is already used|OrderNo is already in use|
-|25|Records not exist or already deleted|Records do not exist or are deleted|
-|26|Duplicity found for person #|Duplicate person embedding|
-|27|No products for such criteria|A  suitable product is not available for the specified criteria|
-|28|Over limit 7.000 EUR/person. Please contact hotline. |Překročené limit na osoba. Contact the administration.|
-|29|Invalid age for the product|Exceeded age for this product|
-|30|Missing insurer data|Complete all necessary information about the policyholder|
-|31|Insurer has to be over 18|The age of the policyholder (or 1st person) must be at least 18 years|
-|32|Number of insured persons exceeded|Number of persons exceeded|
-|33|Supplement not applicable|It is not possible to use for this type of insurance, group, or for this risk zone.|
+| Error No. | Error text |
+| :- | :- |
+| 1 | Unknown product |
+| 2 | Failed loading XML |
+| 3 | Period exceeded |
+| 4 | Wrong riz.zone definition |
+| 5 | DateTo is invalid |
+| 6 | DateFrom is invalid |
+| 7 | Rate does not exist |
+| 8 | SellPrice is out of bounds |
+| 9 | DB error |
+| 10 | This operation is not supported |
+| 11 | Invalid userkey |
+| 12 | Access expired |
+| 13 | Wrong date from |
+| 14 | Wrong date to |
+| 15 | Area is not defined |
+| 16 | Wrong currency |
+| 17 | Missing data for person # |
+| 18 | Missing OrderNo or UserKey |
+| 19 | PIN could not write/update records |
+| 20 | User disabled |
+| 21 | OrderNo already activated |
+| 22 | 0 record was updated. Already activated? |
+| 23 | Order not found |
+| 24 | OrderNo is already used |
+| 25 | Records not exist or already deleted |
+| 26 | Duplicity found for person # |
+| 27 | No products for such criteria |
+| 28 | Over limit 7.000 EUR/person. Please contact hotline. |
+| 29 | Invalid age for the product |
+| 30 | Missing insurer data |
+| 31 | Insurer has to be over 18 |
+| 32 | Number of insured persons exceeded |
+| 33 | Supplement not applicable |
+
 
 

@@ -220,7 +220,7 @@ The calculator is a tool that simplifies the selection of insurance products acc
 |Currency|3, String|Unit of currency (dafault value: EUR)|
 |Area|2, String|W = World<br>E = Europe,<br>SK = Slovakia<br> If it is filled **CountryCode** so  **Area** is optional|
 |TotalTourPrice|Double<br>(Max.2 decimal places for the EUR currency. Integer for CZK)|The total price of the tour, ticket, or other services together, for all persons in the units according to the currency used|
-|CountryCode|3, String|Country code according to the Annex, for Storn there is an empty  3-digit iso alpha code, see http://cs.wikipedia.org/wiki/ISO\_3166-1|
+|CountryCode|3, String|Country code according to the Annex, for Storn there is an empty  3-digit iso alpha code, see [https://cs.wikipedia.org/wiki/ISO_3166-1](https://cs.wikipedia.org/wiki/ISO_3166-1)|
 |Passangers||Poistené osoby. Elementy **Passenger** sa môžu opakovať.|
 |- Passenger||Poradové číslo (0 to max 61)Insured persons. **Passenger** elements  can be repeated.|
 |-- ID|number2, Integer|Serial number (0 to max 61)|
@@ -256,7 +256,7 @@ The calculator is a tool that simplifies the selection of insurance products acc
 |Currency|3, String|Unit of currency used (EUR)|
 |Status|1, String|N = save as paid order (optional)|
 |TotalTourPrice|Double<br>(Max.2 decimal places for currency EUR. Integer for CZK)|Total price of a trip, airfare, or other services total, for all persons in units according to the currency used.|
-|CountryCode|3, String|Country code according to the Annex, for Storn there is an empty <br>3-digit iso alpha code, see http://cs.wikipedia.org/wiki/ISO\_3166-1|
+|CountryCode|3, String|Country code according to the Annex, for Storn there is an empty <br>3-digit iso alpha code, see [https://cs.wikipedia.org/wiki/ISO_3166-1](https://cs.wikipedia.org/wiki/ISO_3166-1)|
 |Area|2, String|W = World,<br>E = Europe,<br>SK = Slovakia.<br>If **CountryCode** is filled in,  the **Area** is  optional</p><p>In the case of driver insurance **Area** is  always **E**.|
 |Arrangement|100, String|Special arrangements for the contract (optional)|
 |InternalAcqNum|20, String|The employee ID, if it is listed in the profile as **Int.zisk.číslo**, can be distinguished in production report. (optional)|

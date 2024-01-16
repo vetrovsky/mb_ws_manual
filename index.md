@@ -261,9 +261,9 @@ The calculator is a tool that simplifies the selection of insurance products acc
 |Arrangement|100, String|Special arrangements for the contract (optional)|
 |InternalAcqNum|20, String|The employee ID, if it is listed in the profile as **Int.zisk.číslo**, can be distinguished in production report. (optional)|
 |IndividualCode|20, String|Custom code - tour resolution, invoice number, etc. (optional)|
-|InsurerFirstName|10, String|Name of the policyholder/person acting (if not filled in 1. person is a policyholder)|
-|InsurerLastName|20, String|Surname of the policyholder/person acting (if not filled in 1.person is a policyholder)|
-|InsurerBirthDate|D.M.YYYY, Date|Date of birth of the policyholder (if not completed 1.person is a policyholder)|
+|InsurerFirstName|10, String|Name of the policyholder/person acting (If not specified, the first legal adult from the group will be used. If no person meets the requirements for the policyholder, the company (CK) that submitted the business case will be set as the policyholder.)|
+|InsurerLastName|20, String|Surname of the policyholder/person acting (if not specified, it is handled similarly as described above at InsurerFirstName)| 
+|InsurerBirthDate|D.M.YYYY, Date|Date of birth of the policyholder(if not specified, it is handled similarly as described above at InsurerFirstName)|
 |InsurerCompany|50, String|Name of legal entity/ company (optional)|
 |InsurerId|10, String|Company ID of a legal entity/company |
 |InsurerIdentityCardType|3 String|OP=ID card, PAS=passport, RES=residence permit for residents (optional)|

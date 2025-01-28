@@ -489,6 +489,7 @@ All others belong to the risk zone "W" with the exception of the Slovak Republic
 | 31 | Insurer has to be over 18 |
 | 32 | Number of insured persons exceeded |
 | 33 | Supplement not applicable |
-
+| 34 | Token not found |
+| 35 | Extension not loaded |
 
 
